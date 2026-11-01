@@ -85,8 +85,6 @@ if prompt:
             {"role": "assistant", "content": answer}
         )
 
-    except Exception:
-        st.error(
-            "Couldn't generate a reply. Check your API key, "
-            "model availability and usage limits."
-        )
+ except Exception as e:
+    st.error(f"Error: {type(e).__name__}")
+    st.write(str(e))
